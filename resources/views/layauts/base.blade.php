@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD_L^8-@yield('title')</title> <!--nombre de la pagina-->
+    <title>EXamen 1-@yield('title')</title> <!--nombre de la pagina-->
 
         <!--Estilos de Boopstrap y CSS-->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -21,29 +21,7 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
 </head>
 <body style="background-color: #E8F8F5;">
-<nav class="navbar navbar-expand-lg navbar-light bg-p-3 mb-2 text-white" style="background-color: #002752;">
-    <!--Logo de navbar-->
-    <a class="navbar-brand" href="{{url('/menu')}}"><img src="https://umg.edu.gt/assets/umg.png" alt="" width="80" class="rounded-circle"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <ul class="nav nav-pills ml-auto flex justify-end">
-    <li class="nav-item">
-        <a class="btn btn-outline-primary offset-1 " id="pills-home-tab"  href="{{url('/menuProfer')}}" role="tab" aria-controls="pills-home" aria-selected="true">Profesor</a>
-    </li>
-    <li class="nav-item">
-        <a class="btn btn-outline-primary offset-3 " id="pills-profile-tab"  href="{{url('/menuInscribir')}}" role="tab" aria-controls="pills-profile" aria-selected="false">Estudiante</a>
-    </li>
-    <li class="nav-item">
-        <a class="btn btn-outline-primary offset-4 " id="pills-contact-tab" href="{{url('/menuNota')}}"  role="tab" aria-controls="pills-contact" aria-selected="false">Calificaciones</a>
-    </li>
-        <li class="nav-item">
-            <a class="btn btn-outline-primary offset-9 " id="pills-contact-tab" href="{{url('/menuCurso')}}"  role="tab" aria-controls="pills-contact" aria-selected="false">Cursos</a>
-        </li>
-    </ul>
 
-    </ul>
-</nav>
 
 <div class="container">
     @yield('content') <!--para navbar-->
