@@ -11,13 +11,17 @@ use Illuminate\Support\Facades\Log;
 
 class LibroController extends Controller
 {
+    public function login(){
+        return view('libro.listaLibro');
+    }
+
  public function listaLibro(Request $request){
      $libro=DB::table('libro')
-         ->join('casa_editorial','libri.casa_editorial_id','=','casa_editorial.id')
+         ->join('casa_editorial','libro.casa_editorial_id','=','casa_editorial.id')
          ->select('libro.*','casa_editorial.nombre_casa')
          ->paginate(10);
 
-    return view('libro.listaLibro',compact('libro',));
+    return view('libro.listaLibro',compact('libro'));
 }
 
     public function formLibro(){
@@ -52,25 +56,5 @@ class LibroController extends Controller
     return redirect('/listaLibro')->with('Guardado', 'Guardado');
 }
 
-    public function editformLibro($id){
-        $casa_editorial=casa_editorial::all();
-        $libro=libro::findOrFail($id);
-
-    return view('libro.editLibro', compact('libro','casa_editorial'));
-}
-    public function editLibro(Request $request, $id ){
-    $dato=request()->except((['_token','_method']));
-    libro::where('id','=', $id)->update($dato);
-    return redirect('/listaLibro')->with('Modificado', 'Modificado');
-}
-    public function destroy($id){
-    try {
-        libro::destroy($id);
-        return redirect('/listaLibro')->with('Eliminado', 'Eliminado');
-    }catch (\Exception $exception){
-        Log::debug($exception->getMessage());
-        return redirect('/listaLibro')->with('alerta','si');
-    }
-}
 }
 
