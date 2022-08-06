@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\libro;
+use App\Models\casa_editorial;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -20,8 +21,8 @@ class LibroController extends Controller
 }
 
     public function formLibro(){
-        $libro=libro::all();
-    return view('libro.crearLibro',compact('libro'));
+        $casa_editorial=casa_editorial::all();
+    return view('libro.crearLibro',compact('casa_editorial'));
 }
 
     public function guardarLibro(Request $request){
@@ -33,7 +34,7 @@ class LibroController extends Controller
             'numro_serie'=>'required',
 
         ]);
-        customer::create([
+        libro::create([
             'nombre'=>$validar['nombre'],
             'fecha_apertura'=>$validar['fecha_apertura'],
             'nombre_autor'=>$validar['nombre_autor'],

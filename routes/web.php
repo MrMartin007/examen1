@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LibroController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,21 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Rutas de curso: Ruta de Lista
+Route::get('/listaLibro', [LibroController::class,'listaLibro'])->name('listaLibro');
+
+//Ruta de Formulario Guardar
+Route::get('/formLibro', [LibroController::class,'formLibro']);
+
+//Ruta para Guardar al categoryController
+Route::post('/libro/crearLibro', [LibroController::class,'guardarLibro'])->name('Libro.save');
+
+//Ruta de Formulario Editar
+Route::get('/editformLibro/{id}', [LibroController::class,'editformLibro'])->name('editformLibro');
+
+//Ruta para Editar
+Route::patch('/editLibro/{id}', [LibroController::class, 'editLibro'])->name('editLibro');
+
+//Ruta para Eliminar
+Route::delete('/deleteLibro/{id}', [LibroController::class,'destroy'])->name('deleteLibro');
