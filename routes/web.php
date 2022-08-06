@@ -15,16 +15,14 @@ use App\Http\Controllers\LibroController;
 */
 
 
-Route::get('/', [LibroController::class,'login']);
-
 
 //Rutas de curso: Ruta de Lista
-Route::get('/listaLibro', [LibroController::class,'listaLibro'])->name('listaLibro');
+Route::get('/', [LibroController::class,'listaLibro'])->name('listaLibro');
 
 //Ruta de Formulario Guardar
 Route::get('/formLibro', [LibroController::class,'formLibro']);
 
 //Ruta para Guardar al categoryController
-Route::post('/libro/crearLibro', [LibroController::class,'guardarLibro'])->name('Libro.save');
+Route::post('/crearLibro', [LibroController::class,'guardarLibro'])->name('Libro.save');
 
 
